@@ -17,13 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 // Route::get('/index', [HomeController::class, 'index'])->name('index.index');
 
+Route::get('/list', function () {
+    return view('list'); //list.blade.php
+});
 
-Auth::routes();
+Route::get('/create', function () {
+    return view('create');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/show/{id?}', function ($id = null) {
+    return view('show', compact('id'));
+});
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/reservation', function () {
+    return view('reservation');
+});
