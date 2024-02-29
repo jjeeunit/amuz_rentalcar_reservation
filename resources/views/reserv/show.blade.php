@@ -2,7 +2,7 @@
 
 @section('content')
 
-cars show
+reservs show
 
 <table border="1">
     <tr>

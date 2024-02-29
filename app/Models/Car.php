@@ -18,4 +18,14 @@ class Car extends Model
         'cmoney',
         'cpossible'
     ];
+
+
+
+    public function reservs()
+    {
+        return $this->hasMany(Reserv::class);
+    }
+
+
+
 }

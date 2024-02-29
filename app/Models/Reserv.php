@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Reserv extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'rpossible'
+    ];
+
+
+    public function cars()
+    {
+        return $this->belongsTo(Car::class);
+    }
+
+
 }

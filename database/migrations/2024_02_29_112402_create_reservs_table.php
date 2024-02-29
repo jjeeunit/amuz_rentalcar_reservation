@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('reservs', function (Blueprint $table) {
             $table->id();
+            $table->string('cid');
             $table->timestamps();
             $table->softDeletes();
             $table->string('rpossible');
+
+            $table->foreign('cid')
+            ->references('id')
+            ->on('cars')
+            ->onDelete('cascade');
         });
     }
 

@@ -47,4 +47,3 @@ Route::get('/', function () {
 Route::resource('cars', CarsController::class);
 Route::resource('reservs', ReservsController::class);
 
-
