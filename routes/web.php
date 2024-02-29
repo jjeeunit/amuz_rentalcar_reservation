@@ -46,3 +46,4 @@ Route::get('/', function () {
 
 Route::resource('cars', CarsController::class);
 
+Route::get('/cars/reservation/{id?}', [CarsController::class, 'reservation'])->name('cars.reservation');

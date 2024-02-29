@@ -48,8 +48,8 @@
             <th>렌트가능여부</th>
             <td>
                 <select name="cpossible">
-                    <option value="예약가능">예약가능</option>
-                    <option value="예약불가">예약불가</option>
+                    <option value="Y">예약가능</option>
+                    <option value="N">예약불가</option>
                 </select>
             </td>
         </tr>

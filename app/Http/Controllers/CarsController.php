@@ -30,6 +30,11 @@ class CarsController extends Controller
         return view('cars.create');
     }
 
+    public function reservation()
+    {
+        return view('cars.reservation');
+    }
+
     /**
      * Store a newly created resource in storage.
      */

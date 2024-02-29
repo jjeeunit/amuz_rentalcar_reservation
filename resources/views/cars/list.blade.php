@@ -25,18 +25,19 @@
         <td>{{ $cs->cmodel }}</td>
         <td>{{ $cs->cmaker }}</td>
         <td>{{ $cs->cnum }}</td>
-        <td>{{ $cs->cmoney }}</td>
+        <td>{{ number_format($cs->cmoney) }}원</td>
         <td>{{ $cs->cpossible }}</td>
         <td>
-            <?php if ($cs['cpossible'] == '예약가능') { ?>
-                <a href="{{ route('cars.show', $cs->id) }}">예약하기</a>
-            <?php } else if ($cs['cpossible'] == '예약불가') { ?>
+            <?php if ($cs['cpossible'] == 'Y') { ?>
+                <a href="{{ route('cars.reservation', $cs->id) }}">예약하기</a>
+            <?php } else if ($cs['cpossible'] == 'N') { ?>
                 <a href="{{ route('cars.show', $cs->id) }}">예약정보확인</a>
             <?php } ?>
         </td>
     </tr>
     @endforeach
 </table>
+
 
 @endsection
 
