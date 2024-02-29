@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('cid')->constrained('cars');
             $table->timestamps();
             $table->softDeletes('reservated_at');
-            $table->boolean('cpossible');
+            $table->string('cpossible');
         });
     }
 
