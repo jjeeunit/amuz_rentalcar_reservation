@@ -13,15 +13,10 @@ return new class extends Migration
     {
         Schema::create('reservs', function (Blueprint $table) {
             $table->id();
-            $table->string('cid');
+            $table->foreignId('cid')->constrained('cars');
             $table->timestamps();
-            $table->softDeletes();
-            $table->string('rpossible');
-
-            $table->foreign('cid')
-            ->references('id')
-            ->on('cars')
-            ->onDelete('cascade');
+            $table->softDeletes('reservated_at');
+            $table->boolean('cpossible');
         });
     }
 

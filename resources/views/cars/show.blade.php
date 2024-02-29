@@ -9,10 +9,8 @@ cars show
         <th>1</th>
         <th>1</th>
     </tr>
-    @foreach($dataer as $dy)
     <tr>
-        <td>{{ $dy->cid }}</td>
-        <td>{{ $dy->cid }}</td>
+        <td>2</td>
+        <td>2</td>
     </tr>
-    @endforeach
 </table>

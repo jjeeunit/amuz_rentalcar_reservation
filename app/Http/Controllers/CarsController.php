@@ -14,9 +14,9 @@ class CarsController extends Controller
     public function index()
     {
         $cars = Car::all();
+        $reservs = Reserv::all();
 
-        return view('cars.list')->with('datas', $cars);
-
+        return view('cars.list', compact('cars', 'reservs'));
     }
 
     /**
@@ -40,12 +40,35 @@ class CarsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Car $car)
-    {
-        $car = Car::where('id', $car->id)->first();
+    // public function show(Car $car)
+    // {
+    //     $car = Car::where('id', $car->id)->first();
 
-        return view('cars.show')->with('car', $car);
+    //     return view('cars.show')->with('car', $car);
+    // }
+
+
+
+
+
+
+
+
+    public function show($id)
+    {
+        $car = Car::findOrFail($id);
+        $reservs = Reserv::where('cid', $id)->get();
+
+        return view('cars.show', compact('car', 'reservs'));
     }
+
+
+
+
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.

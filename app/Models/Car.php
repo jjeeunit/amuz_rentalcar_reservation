@@ -19,13 +19,12 @@ class Car extends Model
         'cpossible'
     ];
 
+}
 
-
-    public function reservs()
+class Reserv extends Model
+{
+    public function car()
     {
-        return $this->hasMany(Reserv::class);
+        return $this->belongsTo(Car::class, 'cid');
     }
-
-
-
 }

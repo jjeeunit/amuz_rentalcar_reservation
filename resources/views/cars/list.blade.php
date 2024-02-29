@@ -17,21 +17,21 @@
         <th>렌트가능여부</th>
         <th></th>
     </tr>
-    @foreach($datas as $ds)
+    @foreach($cars as $cs)
     <tr>
-        <td>{{ $ds->id }}</td>
-        <td>{{ $ds->cev }}</td>
-        <td>{{ $ds->csize }}</td>
-        <td>{{ $ds->cmodel }}</td>
-        <td>{{ $ds->cmaker }}</td>
-        <td>{{ $ds->cnum }}</td>
-        <td>{{ $ds->cmoney }}</td>
-        <td>{{ $ds->cpossible }}</td>
+        <td>{{ $cs->id }}</td>
+        <td>{{ $cs->cev }}</td>
+        <td>{{ $cs->csize }}</td>
+        <td>{{ $cs->cmodel }}</td>
+        <td>{{ $cs->cmaker }}</td>
+        <td>{{ $cs->cnum }}</td>
+        <td>{{ $cs->cmoney }}</td>
+        <td>{{ $cs->cpossible }}</td>
         <td>
-            <?php if ($ds['cpossible'] == '예약가능') { ?>
-                <a href="{{ route('cars.show', $ds->id) }}">예약하기</a>
-            <?php } else if ($ds['cpossible'] == '예약불가') { ?>
-                <a href="{{ route('cars.show', $ds->id) }}">예약정보확인</a>
+            <?php if ($cs['cpossible'] == '예약가능') { ?>
+                <a href="{{ route('cars.show', $cs->id) }}">예약하기</a>
+            <?php } else if ($cs['cpossible'] == '예약불가') { ?>
+                <a href="{{ route('cars.show', $cs->id) }}">예약정보확인</a>
             <?php } ?>
         </td>
     </tr>

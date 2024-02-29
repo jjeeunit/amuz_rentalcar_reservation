@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
-use App\Http\Controllers\ReservsController;
+
 
 
 /*
@@ -45,5 +45,4 @@ Route::get('/', function () {
 
 
 Route::resource('cars', CarsController::class);
-Route::resource('reservs', ReservsController::class);
 
