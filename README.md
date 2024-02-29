@@ -8,10 +8,12 @@
 
 3. 차량별 예약 정보 확인 페이지
     http://127.0.0.1:8000/cars/{id}  -> name : show
+   
     ex)http://127.0.0.1:8000/cars/17
 
-4. 차량 예약 페이지
+5. 차량 예약 페이지
 http://127.0.0.1:8000/cars/reservation/{id}  -> name : reservation
+
 ex)http://127.0.0.1:8000/cars/reservation/16 
 
 
@@ -21,13 +23,17 @@ ex)http://127.0.0.1:8000/cars/reservation/16
 
 xampp설치
 
-composer 설치 
+composer 설치
+
 -파일 설치 위치 변경
+
 -필요시 C:\xampp\php\php.ini 파일을 수정
 extension=zip 을 검색하여 주석을 제거
 
 $ composer global require "laravel/installer"
 
 환경변수 설정(시스템 변수)
+
 변수이름 : laravel
+
 변수 값 : C:\Users\사용자명\AppData\Roaming\Composer\vendor\bin
