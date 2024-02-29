@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Reserv;
 use Illuminate\Http\Request;
 
 class CarsController extends Controller
@@ -15,6 +16,7 @@ class CarsController extends Controller
         $cars = Car::all();
 
         return view('cars.list')->with('datas', $cars);
+
     }
 
     /**

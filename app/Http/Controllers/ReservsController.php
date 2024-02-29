@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Reserv;
 use Illuminate\Http\Request;
+use Illuminate\Support\Faades\DB;
 
 class ReservsController extends Controller
 {
@@ -12,9 +14,28 @@ class ReservsController extends Controller
      */
     public function index()
     {
-        //
-    }
 
+        // $reservs = Reserv::join('cars', 'reservs.cnum', '=', 'cars.cnum')
+        // ->select('reservs.*', 'cars.*')
+        // ->get();
+        // return view('cars.show', compact('reservs'));
+
+
+        // $car = Car::find($id);
+        // $reserv = new Reserv();
+        // $reserv->cnum = $car->cnum;
+        // $reserv->save(); 
+
+
+
+
+
+        $reservs = Reserv::all();
+
+        return view('cars.show')->with('dataer', $reservs);
+
+    }
+ 
     /**
      * Show the form for creating a new resource.
      */
@@ -36,7 +57,7 @@ class ReservsController extends Controller
      */
     public function show(Reserv $reserv)
     {
-        //
+
     }
 
     /**
@@ -62,4 +83,7 @@ class ReservsController extends Controller
     {
         //
     }
+
+
+
 }
