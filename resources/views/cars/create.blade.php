@@ -2,10 +2,8 @@
 
 @section('content')
 
-create
 
 <br>
-
 
 <form action="{{ route('cars.store')}}" method="post">
     @csrf
@@ -14,8 +12,8 @@ create
             <th>연료</th>
             <td>
                 <select name="cev">
-                    <option value="0">전기차</option>
-                    <option value="1">휘발유</option>
+                    <option value="휘발유">휘발유</option>
+                    <option value="전기차">전기차</option>
                 </select>
             </td>
         </tr>
@@ -23,10 +21,10 @@ create
             <th>사이즈</th>
             <td>
                 <select name="csize">
-                    <option value="s">소형</option>
-                    <option value="m">중형</option>
-                    <option value="l">대형</option>
-                    <option value="xl">SUV</option>
+                    <option value="소형">소형</option>
+                    <option value="중형">중형</option>
+                    <option value="대형">대형</option>
+                    <option value="SUV">SUV</option>
                 </select>
             </td>
         </tr>
@@ -39,6 +37,10 @@ create
             <td><input type="text" name="cmaker" required></td>
         </tr>
         <tr>
+            <th>차량번호</th>
+            <td><input type="text" name="cnum" required></td>
+        </tr>
+        <tr>
             <th>렌트비용</th>
             <td><input type="number" name="cmoney" required></td>
         </tr>
@@ -46,8 +48,8 @@ create
             <th>렌트가능여부</th>
             <td>
                 <select name="cpossible">
-                    <option value="0">예약가능</option>
-                    <option value="1">예약불가</option>
+                    <option value="예약가능">예약가능</option>
+                    <option value="예약불가">예약불가</option>
                 </select>
             </td>
         </tr>

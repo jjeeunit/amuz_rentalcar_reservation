@@ -2,20 +2,20 @@
 
 @section('content')
 
-INDEX
-
 
 <p><a href="{{ route('cars.create') }}">차량등록</a></p>
 
 <table border="1">
     <tr>
-        <th>번호</th>
+        <th>순서</th>
         <th>연료</th>
         <th>사이즈</th>
         <th>모델</th>
         <th>제조사</th>
+        <th>차량번호</th>
         <th>렌트비용</th>
         <th>렌트가능여부</th>
+        <th></th>
     </tr>
     @foreach($datas as $ds)
     <tr>
@@ -24,8 +24,16 @@ INDEX
         <td>{{ $ds->csize }}</td>
         <td>{{ $ds->cmodel }}</td>
         <td>{{ $ds->cmaker }}</td>
+        <td>{{ $ds->cnum }}</td>
         <td>{{ $ds->cmoney }}</td>
         <td>{{ $ds->cpossible }}</td>
+        <td>
+            <?php if ($ds['cpossible'] == '예약가능') { ?>
+                <a href="{{ route('cars.show', $ds->id) }}">예약하기</a>
+            <?php } else if ($ds['cpossible'] == '예약불가') { ?>
+                <a href="{{ route('cars.show', $ds->id) }}">예약정보확인</a>
+            <?php } ?>
+        </td>
     </tr>
     @endforeach
 </table>

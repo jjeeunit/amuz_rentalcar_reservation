@@ -14,6 +14,7 @@ class Car extends Model
         'csize',
         'cmodel',
         'cmaker',
+        'cnum',
         'cmoney',
         'cpossible'
     ];

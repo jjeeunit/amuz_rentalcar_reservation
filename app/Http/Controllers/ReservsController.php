@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
+use App\Models\Reserv;
 use Illuminate\Http\Request;
 
-class CarsController extends Controller
+class ReservsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $cars = Car::all();
-
-        return view('cars.list')->with('datas', $cars);
+        //
     }
 
     /**
@@ -22,7 +20,7 @@ class CarsController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        //
     }
 
     /**
@@ -30,25 +28,21 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        Car::create($request->all());
-
-        return redirect()->route('cars.index');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Car $car)
+    public function show(Reserv $reserv)
     {
-        $car = Car::where('id', $car->id)->first();
-
-        return view('cars.show')->with('car', $car);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Car $car)
+    public function edit(Reserv $reserv)
     {
         //
     }
@@ -56,7 +50,7 @@ class CarsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Car $car)
+    public function update(Request $request, Reserv $reserv)
     {
         //
     }
@@ -64,7 +58,7 @@ class CarsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Car $car)
+    public function destroy(Reserv $reserv)
     {
         //
     }
