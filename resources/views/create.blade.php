@@ -42,15 +42,6 @@
                 <td><input type="number" name="cdollar" required></td>
             </tr>
             <tr>
-                <th>렌트가능여부</th>
-                <td>
-                    <select name="cpossible">
-                        <option value="0">예약가능</option>
-                        <option value="1">예약불가</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
                 <th></th>
                 <td><button type="submit">만들기</button></td>
             </tr>

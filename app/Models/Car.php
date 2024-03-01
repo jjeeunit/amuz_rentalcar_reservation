@@ -16,7 +16,6 @@ class Car extends Model
         'cmaker',
         'cnum',
         'cmoney',
-        'cpossible'
     ];
 
 }

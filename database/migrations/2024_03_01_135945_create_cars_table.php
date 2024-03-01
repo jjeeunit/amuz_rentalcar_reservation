@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reservs', function (Blueprint $table) {
+        Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cid')->constrained('cars');
+            $table->string('cev');
+            $table->string('csize');
+            $table->string('cmodel');
+            $table->string('cmaker');
+            $table->string('cnum');
+            $table->integer('cmoney');
             $table->timestamps();
-            $table->softDeletes('reservated_at');
-            $table->string('cpossible');
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservs');
+        Schema::dropIfExists('cars');
     }
 };

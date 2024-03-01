@@ -16,9 +16,7 @@ class CarsController extends Controller
         $cars = Car::all();
         $reservs = Reserv::all();
 
-        return view('cars.list', compact('cars', 'reservs'))
-        ->with('cars', $cars)
-        ->with('reservs', $reservs);
+        return view('cars.list', compact('cars', 'reservs'));
     }
 
 
