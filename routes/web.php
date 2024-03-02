@@ -16,34 +16,14 @@ use App\Http\Controllers\CarsController;
 |
 */
 
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-// Route::get('/list', function () {
-//     return view('list'); //list.blade.php
-// });
-
-// Route::get('/create', function () {
-//     return view('create');
-// });
-
-// Route::get('/show/{id?}', function ($id = null) {
-//     return view('show', compact('id'));
-// });
-
-// Route::get('/reservation', function () {
-//     return view('reservation');
-// });
 
 
 Route::resource('cars', CarsController::class);
 
-Route::get('/cars/reservation/{id?}', [CarsController::class, 'reservation'])->name('cars.reservation');
+Route::get('/cars/reservation/{id}', [CarsController::class, 'reservation'])->name('cars.reservation');

@@ -28,9 +28,12 @@ class CarsController extends Controller
         return view('cars.create');
     }
 
-    public function reservation()
+    public function reservation($id)
     {
-        return view('cars.reservation');
+        $cars = Car::all();
+        $reservs = Reserv::all();
+
+        return view('cars.reservation', compact('cars', 'reservs','id'));
     }
 
     /**
@@ -38,7 +41,26 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        Car::create($request->all());
+        //reservs table
+        $reservationData = [
+            'cid' => $request->input('cid'),
+            'created_at' => $request->input('created_at'),
+            'updated_at' => $request->input('updated_at'),
+            'reservated_at' => $request->input('reservated_at'),
+        ];
+        Reserv::create($reservationData);
+
+
+        //cars table
+        $carData = [
+            'cev' => $request->input('cev'),
+            'csize' => $request->input('csize'),
+            'cmodel' => $request->input('cmodel'),
+            'cmaker' => $request->input('cmaker'),
+            'cnum' => $request->input('cnum'),
+            'cmoney' => $request->input('cmoney'),
+        ];
+        Car::create($carData);
 
         return redirect()->route('cars.index');
     }

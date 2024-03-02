@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('reservs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cid')->constrained('cars');
-            $table->timestamps();
+            $table->foreignId('cid')->nullable()->constrained('cars');
             $table->softDeletes('reservated_at');
+            $table->timestamps();
         });
     }
 

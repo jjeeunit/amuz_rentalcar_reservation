@@ -15,15 +15,15 @@ class Car extends Model
         'cmodel',
         'cmaker',
         'cnum',
-        'cmoney',
+        'cmoney'
     ];
 
+
+
+    // public function car()
+    // {
+    //     return $this->belongsTo(Car::class, 'cid');
+    // }
+
 }
 
-class Reserv extends Model
-{
-    public function car()
-    {
-        return $this->belongsTo(Car::class, 'cid');
-    }
-}
