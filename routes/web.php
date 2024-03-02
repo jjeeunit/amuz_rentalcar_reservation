@@ -27,3 +27,6 @@ Route::get('/', function () {
 Route::resource('cars', CarsController::class);
 
 Route::get('/cars/reservation/{id}', [CarsController::class, 'reservation'])->name('cars.reservation');
+
+Route::post('/cars/stores', [CarsController::class, 'stores'])->name('cars.stores');
+

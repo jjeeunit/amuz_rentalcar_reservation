@@ -28,6 +28,10 @@ class CarsController extends Controller
         return view('cars.create');
     }
 
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function reservation($id)
     {
         $cars = Car::all();
@@ -36,21 +40,12 @@ class CarsController extends Controller
         return view('cars.reservation', compact('cars', 'reservs','id'));
     }
 
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //reservs table
-        $reservationData = [
-            'cid' => $request->input('cid'),
-            'created_at' => $request->input('created_at'),
-            'updated_at' => $request->input('updated_at'),
-            'reservated_at' => $request->input('reservated_at'),
-        ];
-        Reserv::create($reservationData);
-
-
         //cars table
         $carData = [
             'cev' => $request->input('cev'),
@@ -60,10 +55,32 @@ class CarsController extends Controller
             'cnum' => $request->input('cnum'),
             'cmoney' => $request->input('cmoney'),
         ];
+
         Car::create($carData);
+
 
         return redirect()->route('cars.index');
     }
+
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function stores(Request $request)
+    {
+        //reservs table
+        $reservationData = [
+            'cid' => $request->input('cid'),
+            'reservated_at' => $request->input('reservated_at'),
+            'started_at' => $request->input('started_at'),
+            'ended_at' => $request->input('ended_at'),
+        ];
+        Reserv::create($reservationData);
+
+
+        return redirect()->route('cars.show', $reservationData['cid']);
+    }
+
 
     /**
      * Display the specified resource.

@@ -5,18 +5,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<form action="{{ route('cars.store')}}" method="post">
+<form action="{{ route('cars.stores')}}" method="post">
     @csrf
     <table border="1">
         @foreach($cars as $cs)
         @if($cs->id == $id)
         <tr>
             <th>예약 시작일</th>
-            <td><input type="datetime-local" id="startflatpickr" name="created_at" value="{{ date('Y-m-d H:i:s') }}"></td>
+            <td><input type="datetime-local" id="startflatpickr" name="started_at" value="{{ date('Y-m-d H:i:s') }}"></td>
         </tr>
         <tr>
             <th>예약 종료일</th>
-            <td><input type="datetime-local" id="endflatpickr" name="updated_at" value="{{ date('Y-m-d H:i:s') }}"></td>
+            <td><input type="datetime-local" id="endflatpickr" name="ended_at" value="{{ date('Y-m-d H:i:s') }}"></td>
         </tr>
         <tr>
             <th>

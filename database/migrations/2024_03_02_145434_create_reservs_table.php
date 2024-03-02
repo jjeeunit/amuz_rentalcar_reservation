@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('reservs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cid')->nullable()->constrained('cars');
-            $table->softDeletes('reservated_at');
+            $table->foreignId('cid')->constrained('cars');
+            $table->timestamp('reservated_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('started_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('ended_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }
