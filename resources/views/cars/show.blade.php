@@ -9,14 +9,12 @@
         <th>차량ID</th>
         <th>예약 시작일</th>
         <th>예약 종료일</th>
-        <th>예약 생성일</th>
     </tr>
     @foreach($reservs as $rs)
     <tr>
         <td>{{ $rs->cid }}</td>
         <td>{{ $rs->started_at }}</td>
         <td>{{ $rs->ended_at }}</td>
-        <td>{{ $rs->reservated_at }}</td>
     </tr>
     @endforeach
 </table>

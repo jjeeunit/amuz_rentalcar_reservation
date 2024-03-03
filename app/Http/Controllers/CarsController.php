@@ -75,7 +75,6 @@ class CarsController extends Controller
 
         $reservationData = [
             'cid' => $request->input('cid'),
-            'reservated_at' => $request->input('reservated_at'),
             'started_at' => $request->input('started_at'),
             'ended_at' => $request->input('ended_at'),
         ];

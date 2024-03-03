@@ -11,7 +11,6 @@ class Reserv extends Model
 
     protected $fillable = [
         'cid',
-        'reservated_at',
         'started_at',
         'ended_at'
     ];
