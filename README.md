@@ -9,14 +9,11 @@
     http://127.0.0.1:8000/cars/create  -> name : create
 
 3. 차량별 예약 정보 확인 페이지
-    http://127.0.0.1:8000/cars/{id}  -> name : show
+    http://127.0.0.1:8000/cars/1  -> name : show
    
-    ex)http://127.0.0.1:8000/cars/1
-
 5. 차량 예약 페이지
-    http://127.0.0.1:8000/cars/reservation/{id}  -> name : reservation
+    http://127.0.0.1:8000/cars/reservation/1  -> name : reservation
    
-    ex)http://127.0.0.1:8000/cars/reservation/1
 
 
 ## DB tables
@@ -36,6 +33,7 @@
     cnum	      차량번호
 
     cmoney	    렌트비용
+
 
 
 2. reservs table
