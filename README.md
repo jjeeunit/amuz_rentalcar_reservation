@@ -23,28 +23,28 @@
 
 1. cars table
 
-id	        차량idx(PK)
+    id	        차량idx(PK)
 
-cev	        연료(전기차, 휘발유)
+    cev	        연료(전기차, 휘발유)
 
-csize	      사이즈(소형, 중형, 대형, SUV)
+    csize	      사이즈(소형, 중형, 대형, SUV)
 
-cmodel	    모델
+    cmodel	    모델
 
-cmaker	    제조사
+    cmaker	    제조사
 
-cnum	      차량번호
+    cnum	      차량번호
 
-cmoney	    렌트비용
+    cmoney	    렌트비용
 
 
 2. reservs table
 
-id	        예약idx(PK)
+    id	        예약idx(PK)
 
-cid	        차량idx(FK)
+    cid	        차량idx(FK)
 
-started_at  예약시작일	
+    started_at  예약시작일	
 
-ended_at	  예약종료일
+    ended_at	  예약종료일
 
