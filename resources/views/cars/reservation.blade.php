@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<form action="{{ route('cars.stores')}}" method="post">
+<form action="{{ route('cars.stores') }}" method="post">
     @csrf
     <table border="1">
         @foreach($cars as $cs)
@@ -32,14 +32,54 @@
 </form>
 
 <script>
-    flatpickr("#startflatpickr", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i:s",
-    });
+    document.addEventListener('DOMContentLoaded', function() {
 
-    flatpickr("#endflatpickr", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i:s",
+        flatpickr("#startflatpickr", {
+            onChange: function(selectedDates, dateStr, instance) {
+                var endDateTime = document.getElementById('endflatpickr').value;
+                checkReservationOverlap(dateStr, endDateTime);
+            },
+            minDate: "today",
+            dateFormat: "Y-m-d H:i:s"
+        });
+
+        flatpickr("#endflatpickr", {
+            onChange: function(selectedDates, dateStr, instance) {
+                var startDateTime = document.getElementById('startflatpickr').value;
+                checkReservationOverlap(startDateTime, dateStr);
+            },
+            minDate: "today",
+            dateFormat: "Y-m-d H:i:s"
+        });
+
+        //duplicate메서드 중복예약막기
+        function checkReservationOverlap(startDateTime, endDateTime) {
+
+            let formData = new FormData(document.querySelector('form'));
+
+            fetch("{{ route('cars.duplicate') }}", {
+                body: formData,
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.overlap) {
+                    alert('중복된 예약이 있습니다. check');
+                }
+            })
+            .catch(error => {
+                console.error('에러 발생:', error);
+            });
+        }
+
+
+        //stores메서드 중복예약막기
+        @if(session('error'))
+            alert('{{ session('error') }}');
+        @endif
+
+
+
     });
 </script>
 

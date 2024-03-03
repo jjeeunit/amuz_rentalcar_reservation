@@ -30,7 +30,7 @@ class CarsController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * reservation a newly created resource in storage.
      */
     public function reservation($id)
     {
@@ -46,7 +46,6 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        //cars table
         $carData = [
             'cev' => $request->input('cev'),
             'csize' => $request->input('csize'),
@@ -64,11 +63,16 @@ class CarsController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * stores a newly created resource in storage.
      */
     public function stores(Request $request)
     {
-        //reservs table
+        $isOverlap = $this->duplicate($request)->getData()->overlap;
+
+        if ($isOverlap) {
+            return redirect()->back()->with('error', '중복된 예약이 있습니다. insert');
+        } 
+
         $reservationData = [
             'cid' => $request->input('cid'),
             'reservated_at' => $request->input('reservated_at'),
@@ -77,9 +81,24 @@ class CarsController extends Controller
         ];
         Reserv::create($reservationData);
 
-
         return redirect()->route('cars.show', $reservationData['cid']);
     }
+
+
+
+    /**
+     * duplicate a newly created resource in storage.
+     */
+    public function duplicate(Request $request)
+    {
+        $reservedTimes = Reserv::where('started_at', '<=', $request->ended_at)
+                                ->where('ended_at', '>=', $request->started_at)
+                                ->where('cid', $request->cid)
+                                ->pluck('cid');
+
+        return response()->json(['overlap' => $reservedTimes->isNotEmpty()]);
+    }
+
 
 
     /**
